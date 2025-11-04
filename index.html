@@ -1,13 +1,28 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<title>
-Api Routing From Vercel
-</title>
-<body>
-<h1>Api Routing From Vercel</h1>
-</body>
-
-<script>
-
-</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>API Call Demo</title>
 </head>
+<body>
+  <h1>Call Vercel API</h1>
+  <input type="text" id="name" placeholder="Enter your name">
+  <button onclick="callApi()">Say Hello</button>
+  <p id="response"></p>
+
+  <script>
+    async function callApi() {
+      const name = document.getElementById("name").value;
+      try {
+        const res = await fetch(`/api/api?name=${encodeURIComponent(name)}`);
+        const data = await res.json();
+        document.getElementById("response").innerText = data.message;
+      } catch (err) {
+        console.error("Error:", err);
+        document.getElementById("response").innerText = "API call failed";
+      }
+    }
+  </script>
+</body>
+</html>
