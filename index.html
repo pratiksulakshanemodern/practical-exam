@@ -15,7 +15,7 @@
     async function callApi() {
       const name = document.getElementById("name").value;
       try {
-        const res = await fetch(`/api?name=${encodeURIComponent(name)}`);
+        const res = await fetch(`/api/api?name=${encodeURIComponent(name)}`);
         const data = await res.json();
         document.getElementById("response").innerText = data.message;
       } catch (err) {
