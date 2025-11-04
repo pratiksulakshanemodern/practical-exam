@@ -6,7 +6,7 @@
   <title>API Call Demo</title>
 </head>
 <body>
-  <h1>Call Vercel API</h1>
+  <h1>Call API</h1>
   <input type="text" id="name" placeholder="Enter your name">
   <button onclick="callApi()">Say Hello</button>
   <p id="response"></p>
@@ -15,11 +15,11 @@
     async function callApi() {
       const name = document.getElementById("name").value;
       try {
-        const res = await fetch(`/api/api?name=${encodeURIComponent(name)}`);
+        const res = await fetch(`/api.js?name=${encodeURIComponent(name)}`);
         const data = await res.json();
         document.getElementById("response").innerText = data.message;
       } catch (err) {
-        console.error("Error:", err);
+        console.error(err);
         document.getElementById("response").innerText = "API call failed";
       }
     }
